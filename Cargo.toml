@@ -1,0 +1,39 @@
+[package]
+name = "trussed-hmacsha256p256"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+trussed = { version = "0.1.0", features = ["serde-extensions"] }
+chacha20poly1305 = { version = "0.10", default-features = false, features = ["heapless", "reduced-round"], optional = true }
+serde = { version = "1.0.160", default-features = false, features = ["derive"] }
+rand_core = { version = "0.6.4", default-features = false }
+delog = "0.1.6"
+littlefs2 = "0.4.0"
+serde-byte-array = "0.1.2"
+
+# For hmacsha256p256
+hmac = { version = "0.12", default-features = false }
+sha2 = { version = "0.10", default-features = false }
+
+[dev-dependencies]
+trussed = { version = "0.1.0", default-features = false, features = ["serde-extensions", "virt"] }
+
+[features]
+virt = ["std", "trussed/virt"]
+std = []
+
+# used for delog
+log-all = []
+log-none = []
+log-info = []
+log-debug = []
+log-warn = []
+log-error = []
+
+[patch.crates-io]
+trussed = { git = "https://github.com/trussed-dev/trussed.git", rev = "45ed62ba97d994aa6e05e2b61cea013ef131caa4" }
+littlefs2 = { git = "https://github.com/trussed-dev/littlefs2.git", rev = "ebd27e49ca321089d01d8c9b169c4aeb58ceeeca" }
+
