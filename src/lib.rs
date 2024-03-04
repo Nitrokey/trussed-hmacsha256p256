@@ -12,6 +12,11 @@ use trussed::{
     Error,
 };
 
+#[macro_use]
+extern crate delog;
+
+generate_macros!();
+
 #[derive(Debug, Default)]
 pub struct Backend {}
 
