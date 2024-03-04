@@ -255,3 +255,6 @@ impl<C: ExtensionClient<HmacSha256P256Extension>> HmacSha256P256Client for C {}
 impl trussed::backend::Backend for Backend {
     type Context = BackendContext;
 }
+
+#[cfg(feature = "virt")]
+pub mod virt;
